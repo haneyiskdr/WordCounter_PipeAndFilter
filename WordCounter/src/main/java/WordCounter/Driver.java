@@ -7,9 +7,9 @@ package WordCounter;
 
 /**
  *
- * @author haneyiskdr
+ * @author USER
  */
-public class WordCounter {
+public class Driver {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
