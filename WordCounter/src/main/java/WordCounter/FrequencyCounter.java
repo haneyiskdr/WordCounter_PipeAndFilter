@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 /**
  *
- * @author USER
+ * @author syafiqah-violet
  */
 public class FrequencyCounter extends Filter {
     
