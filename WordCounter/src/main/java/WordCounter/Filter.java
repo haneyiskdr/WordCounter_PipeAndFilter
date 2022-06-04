@@ -10,4 +10,22 @@ package WordCounter;
  */
 public class Filter {
     
+    public static final String POISON_PILL = new String("Poison");
+
+    Pipe inPipe;
+    Pipe outPipe;
+
+    public Filter(Pipe in, Pipe out){
+        inPipe = in;
+        outPipe = out;
+    }
+
+    public String getData(){
+        return inPipe.out();
+    }
+
+    public void sendData( String toSend ){
+        outPipe.in(toSend);
+    }
+    
 }

@@ -4,10 +4,23 @@
  */
 package WordCounter;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  *
  * @author USER
  */
 public class Pipe {
+    
+    Queue<String> data = new LinkedList<>();
+
+    public synchronized void in (String in){
+        data.add(in);
+    }
+
+    public synchronized String out (){
+        return data.poll();
+    }
     
 }
