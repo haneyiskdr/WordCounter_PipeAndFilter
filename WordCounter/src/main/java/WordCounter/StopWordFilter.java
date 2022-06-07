@@ -8,6 +8,9 @@ package WordCounter;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -45,15 +48,16 @@ public class StopWordFilter extends Filter {
     }
 
     // To construct the stopwords list
-    public void setUp(String swfilename) {
+    public void setUp(String filename) {
 
         // Try to read file, if cannot then throw exception
         try {
-            BufferedReader br = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream(swfilename)));
+            //try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream(filename)));
             List<String> words = new ArrayList<>();
             String line;
 
-            while ((line = br.readLine()) != null) {
+            while ((line = reader.readLine()) != null) {
                 words.add(line);
             }
 
@@ -62,10 +66,14 @@ public class StopWordFilter extends Filter {
                 String cleanedWord = word.replaceAll("[\\n\\t]", "");
                 stopWords.add(cleanedWord);
             }
- 
-        } catch (IOException ioe) {
+                /*
+            } catch (URISyntaxException ue){
+                System.out.println("Cannot read file");
+                ue.printStackTrace();
+            }*/
+        } catch (IOException fe) {
             System.out.println("Unable to read from stopwords.txt.");
-            ioe.printStackTrace();
+            fe.printStackTrace();
         }
 
         System.out.println("Stop word filter setup has been completed.");
@@ -82,28 +90,25 @@ public class StopWordFilter extends Filter {
             this.setUp("stopwords.txt");
         }
 
-        Instant startTime = Instant.now();
+         Instant totalStart = Instant.now();
 
         while (true) {
             String word = getData();
 
             if (word != Filter.POISON_PILL) {
                 if (word != null) {
-                    Instant start = Instant.now();
-                    
+                    Instant actionStart = Instant.now();
                     if (!stopWords.contains(word)) {
                         sendData(word);
                     }
-                    
-                    Instant end = Instant.now();
-                    times.add(Duration.between(start, end).toNanos());
+                    Instant actionEnd = Instant.now();
+                    times.add(Duration.between(actionStart,actionEnd).toNanos());
                 } else continue;
             } else break;
         }
-        
         sendData(Filter.POISON_PILL);
-        Instant endTime = Instant.now();
-        totalTime = Duration.between(startTime, endTime).toMillis();
+        Instant totalEnd = Instant.now();
+        totalTime = Duration.between(totalStart, totalEnd).toMillis();
         
         System.out.println("Stop word filtering has been completed.");
     }
