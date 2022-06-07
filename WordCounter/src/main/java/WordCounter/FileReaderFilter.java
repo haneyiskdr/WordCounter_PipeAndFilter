@@ -19,7 +19,7 @@ import java.util.List;
  *
  * @author sitisarahaqilah
  */
-public class FileReaderFilter extends Filter {
+public class FileReaderFilter extends Filter implements Runnable {
     
     private List<Long> times = new ArrayList<>();
     private Long totalTime;
@@ -40,6 +40,7 @@ public class FileReaderFilter extends Filter {
         return (sum / times.size());
     }
 
+    @Override
     public void run() {
         //System.out.println("FileReaderFilter started");
         Instant totalStart = Instant.now();
