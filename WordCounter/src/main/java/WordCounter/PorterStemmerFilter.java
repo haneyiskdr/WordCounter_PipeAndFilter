@@ -1,4 +1,4 @@
-package main;
+package WordCounter;
 
 import java.time.Duration;
 import java.time.Instant;

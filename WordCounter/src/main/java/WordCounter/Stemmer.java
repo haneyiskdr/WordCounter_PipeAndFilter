@@ -1,5 +1,5 @@
  //Reused Code
-package main;
+package WordCounter;
 
 /*
 
