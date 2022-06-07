@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author syafiqah-violet
  */
-public class FrequencyCounter extends Filter {
+public class FrequencyCounter extends Filter implements Runnable{
     
     //Hi ni testing;
     HashMap<String,Integer> frequencies = new HashMap();
@@ -54,7 +54,7 @@ public class FrequencyCounter extends Filter {
         }
     }
 
-    //@Override
+    @Override
     public void run() {
         //System.out.println("FrequencyCounter started");
 

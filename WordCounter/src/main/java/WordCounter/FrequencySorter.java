@@ -14,7 +14,7 @@ import java.util.Comparator;
  */
 public class FrequencySorter implements Comparator<Pair> {
     
-   //@Override
+   @Override
     public int compare(Pair o1, Pair o2) {
         int compareVal =  o2.getFrequency().compareTo(o1.getFrequency());
         if (compareVal != 0){
