@@ -23,7 +23,7 @@ import java.util.List;
  * To filter out stop words from input text files
  * 
  */
-public class StopWordFilter extends Filter {
+public class StopWordFilter extends Filter implements Runnable {
     
     private List<String> stopWords = new ArrayList();
     private List<Long> times = new ArrayList<>();
@@ -81,6 +81,7 @@ public class StopWordFilter extends Filter {
     }
 
     // To filter out stop words from the input text file
+    @Override
     public void run() {
         
         // System.out.println("Stop word filter has started.");
