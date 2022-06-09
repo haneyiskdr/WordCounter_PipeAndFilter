@@ -72,12 +72,12 @@ public class Driver {
         StopWordFilter stopWordFilter1 = new StopWordFilter(p4,p5);
         StopWordFilter stopWordFilter2 = new StopWordFilter(p4,p5);
         StopWordFilter stopWordFilter3 = new StopWordFilter(p4,p5);
-        stopWordFilter1.setUp("stopwords.txt");
-        stopWordFilter2.setUp("stopwords.txt");
-        stopWordFilter3.setUp("stopwords.txt");
-
-
-        stopWordFilter.setUp("stopwords.txt");
+//        stopWordFilter1.setUp("stopwords.txt");
+//        stopWordFilter2.setUp("stopwords.txt");
+//        stopWordFilter3.setUp("stopwords.txt");
+//
+//
+//        stopWordFilter.setUp("stopwords.txt");
 
         Instant start = Instant.now();
         fileReaderFilter.run();
