@@ -6,6 +6,7 @@
 package WordCounter;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -53,7 +54,7 @@ public class StopWordFilter extends Filter implements Runnable {
         // Try to read file, if cannot then throw exception
         try {
             //try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream(filename)));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("src/main/java/WordCounter/TextFile/"+filename)));
             List<String> words = new ArrayList<>();
             String line;
 

@@ -5,6 +5,7 @@
 package WordCounter;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URISyntaxException;
@@ -60,7 +61,7 @@ public class FileReaderFilter extends Filter implements Runnable {
                         //in = new String(Files.readAllBytes(Paths.get("src/resources/"+filename)));
                         //in = in.toLowerCase();
 
-                        BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream(filename)));
+                        BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("src/main/java/WordCounter/TextFile/"+filename)));
                         String line;
 
                         while ((line = reader.readLine()) != null){
