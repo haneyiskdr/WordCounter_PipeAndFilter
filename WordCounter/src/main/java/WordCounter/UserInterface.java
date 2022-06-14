@@ -8,10 +8,11 @@ import java.io.File;
 import java.io.FileWriter;
 import java.time.Duration;
 import java.time.Instant;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author End User
+ * @author sitisarahaqilah
  */
 public class UserInterface extends javax.swing.JFrame {
 
@@ -209,7 +210,7 @@ public class UserInterface extends javax.swing.JFrame {
             writer.write(str);
             writer.close();
         }catch (Exception e){
-            
+            JOptionPane.showMessageDialog(null, "Error");
         }
         
         begin("analyse.txt"); 
