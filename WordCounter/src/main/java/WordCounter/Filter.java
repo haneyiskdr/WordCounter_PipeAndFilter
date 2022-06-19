@@ -6,7 +6,7 @@ package WordCounter;
 
 /**
  *
- * @author USER
+ * @author haneyiskdr
  */
 public class Filter {
     
@@ -24,7 +24,7 @@ public class Filter {
         return inPipe.out();
     }
 
-    public void sendData( String toSend ){
+    public void sendData(String toSend){
         outPipe.in(toSend);
     }
     

@@ -16,11 +16,14 @@ import javax.swing.JOptionPane;
  */
 public class UserInterface extends javax.swing.JFrame {
 
+    public static String output;
+
     /**
      * Creates new form UserInterface
      */
     public UserInterface() {
         initComponents();
+        output = "";
     }
 
     /**
@@ -32,6 +35,7 @@ public class UserInterface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -43,6 +47,21 @@ public class UserInterface extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jButton4 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jLabel4 = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 620, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 212, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -153,30 +172,68 @@ public class UserInterface extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel3.setText("Choose one of the two options:");
 
+        jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane2)
+                .addGap(20, 20, 20))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel4.setText("Output");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel3))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(281, 281, 281))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel3)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -201,22 +258,22 @@ public class UserInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
         String str = jTextArea1.getText();
         File file = new File("src/main/java/WordCounter/TextFile/analyse.txt");
-        if(file.exists()){
-           file.delete(); 
+        if (file.exists()) {
+            file.delete();
         }
 
-        try{
-            FileWriter writer = new FileWriter (file, true);
+        try {
+            FileWriter writer = new FileWriter(file, true);
             writer.write(str);
             writer.close();
-        }catch (Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error");
         }
-        
-        begin("analyse.txt"); 
+
+        begin("analyse.txt");
     }//GEN-LAST:event_jButton4ActionPerformed
 
-        public void begin(String filename){
+    public void begin(String filename) {
 
         //Build tons of pipes
         Pipe p1 = new Pipe();
@@ -227,27 +284,25 @@ public class UserInterface extends javax.swing.JFrame {
         Pipe p6 = new Pipe();
 
         //String filename = getFileName();
-        System.out.println("You've selected " + filename);
         p1.in(filename);
         p1.in(Filter.POISON_PILL);
-
-        FileReaderFilter fileReaderFilter = new FileReaderFilter(p1,p2);
-        EmptyStringFilter emptyStringFilter = new EmptyStringFilter(p2,p3);
-        NonAlphaFilter nonAlphaFilter = new NonAlphaFilter(p3,p4);
-        StopWordFilter stopWordFilter = new StopWordFilter(p4,p5);
-        PorterStemmerFilter porterStemmerFilter = new PorterStemmerFilter(p5,p6);
-        FrequencyCounter frequencyCounter = new FrequencyCounter(p6,null);
-
-
-        //Add threads to improve efficiency
-        NonAlphaFilter nonAlphaFilter1 = new NonAlphaFilter(p3,p4);
-        NonAlphaFilter nonAlphaFilter2 = new NonAlphaFilter(p3,p4);
-        NonAlphaFilter nonAlphaFilter3 = new NonAlphaFilter(p3,p4);
+        System.out.println("You've selected " + filename);
+        FileReaderFilter fileReaderFilter = new FileReaderFilter(p1, p2);
+        EmptyStringFilter emptyStringFilter = new EmptyStringFilter(p2, p3);
+        NonAlphaFilter nonAlphaFilter = new NonAlphaFilter(p3, p4);
+        StopWordFilter stopWordFilter = new StopWordFilter(p4, p5);
+        PorterStemmerFilter porterStemmerFilter = new PorterStemmerFilter(p5, p6);
+        FrequencyCounter frequencyCounter = new FrequencyCounter(p6, null);
 
         //Add threads to improve efficiency
-        StopWordFilter stopWordFilter1 = new StopWordFilter(p4,p5);
-        StopWordFilter stopWordFilter2 = new StopWordFilter(p4,p5);
-        StopWordFilter stopWordFilter3 = new StopWordFilter(p4,p5);
+        NonAlphaFilter nonAlphaFilter1 = new NonAlphaFilter(p3, p4);
+        NonAlphaFilter nonAlphaFilter2 = new NonAlphaFilter(p3, p4);
+        NonAlphaFilter nonAlphaFilter3 = new NonAlphaFilter(p3, p4);
+
+        //Add threads to improve efficiency
+        StopWordFilter stopWordFilter1 = new StopWordFilter(p4, p5);
+        StopWordFilter stopWordFilter2 = new StopWordFilter(p4, p5);
+        StopWordFilter stopWordFilter3 = new StopWordFilter(p4, p5);
 //        stopWordFilter1.setUp("stopwords.txt");
 //        stopWordFilter2.setUp("stopwords.txt");
 //        stopWordFilter3.setUp("stopwords.txt");
@@ -264,45 +319,41 @@ public class UserInterface extends javax.swing.JFrame {
         new Thread(nonAlphaFilter2).start();
         new Thread(nonAlphaFilter3).start();
 
-
         //stopWordFilter.run();
-
         new Thread(stopWordFilter1).start();
         new Thread(stopWordFilter2).start();
         new Thread(stopWordFilter3).start();
-
 
         porterStemmerFilter.run();
         frequencyCounter.run();
         Instant end = Instant.now();
 
         System.out.println();
-        
-        System.out.println(String.format("FileFilter times - avg: %d total: %d",fileReaderFilter.getAvgTime(),fileReaderFilter.getTotalTime()));
-        System.out.println(String.format("FileFilter times - avg: %d total: %d",fileReaderFilter.getAvgTime(),fileReaderFilter.getTotalTime()));
-        System.out.println(String.format("EmptyFilter times - avg: %d total: %d",emptyStringFilter.getAvgTime(),emptyStringFilter.getTotalTime()));
+
+        System.out.println(String.format("FileFilter times - avg: %d total: %d", fileReaderFilter.getAvgTime(), fileReaderFilter.getTotalTime()));
+        System.out.println(String.format("FileFilter times - avg: %d total: %d", fileReaderFilter.getAvgTime(), fileReaderFilter.getTotalTime()));
+        System.out.println(String.format("EmptyFilter times - avg: %d total: %d", emptyStringFilter.getAvgTime(), emptyStringFilter.getTotalTime()));
         //System.out.println(String.format("NonAlphaFilter times - avg: %d total: %d",nonAlphaFilter.getAvgTime(),nonAlphaFilter.getTotalTime()));
 
         //Print out timing from threads
-        System.out.println(String.format("NonAlphaFilter1 times - avg: %d total: %d",nonAlphaFilter1.getAvgTime(),nonAlphaFilter1.getTotalTime()));
-        System.out.println(String.format("NonAlphaFilter2 times - avg: %d total: %d",nonAlphaFilter1.getAvgTime(),nonAlphaFilter1.getTotalTime()));
-        System.out.println(String.format("NonAlphaFilter3 times - avg: %d total: %d",nonAlphaFilter1.getAvgTime(),nonAlphaFilter1.getTotalTime()));
-
+        System.out.println(String.format("NonAlphaFilter1 times - avg: %d total: %d", nonAlphaFilter1.getAvgTime(), nonAlphaFilter1.getTotalTime()));
+        System.out.println(String.format("NonAlphaFilter2 times - avg: %d total: %d", nonAlphaFilter1.getAvgTime(), nonAlphaFilter1.getTotalTime()));
+        System.out.println(String.format("NonAlphaFilter3 times - avg: %d total: %d", nonAlphaFilter1.getAvgTime(), nonAlphaFilter1.getTotalTime()));
 
         //System.out.println(String.format("StopWordFilter times - avg: %d total: %d",stopWordFilter.getAvgTime(),stopWordFilter.getTotalTime()));
-
         //Print out timing from threads
-        System.out.println(String.format("StopWordFilter1 times - avg: %d total: %d",stopWordFilter1.getAvgTime(),stopWordFilter1.getTotalTime()));
-        System.out.println(String.format("StopWordFilter2 times - avg: %d total: %d",stopWordFilter2.getAvgTime(),stopWordFilter2.getTotalTime()));
-        System.out.println(String.format("StopWordFilter3 times - avg: %d total: %d",stopWordFilter3.getAvgTime(),stopWordFilter3.getTotalTime()));
+        System.out.println(String.format("StopWordFilter1 times - avg: %d total: %d", stopWordFilter1.getAvgTime(), stopWordFilter1.getTotalTime()));
+        System.out.println(String.format("StopWordFilter2 times - avg: %d total: %d", stopWordFilter2.getAvgTime(), stopWordFilter2.getTotalTime()));
+        System.out.println(String.format("StopWordFilter3 times - avg: %d total: %d", stopWordFilter3.getAvgTime(), stopWordFilter3.getTotalTime()));
 
-        System.out.println(String.format("PorterFilter times - avg: %d total: %d",porterStemmerFilter.getAvgTime(),porterStemmerFilter.getTotalTime()));
-        System.out.println(String.format("FreqFilter times - avg: %d total: %d",frequencyCounter.getAvgTime(),frequencyCounter.getTotalTime()));
+        System.out.println(String.format("PorterFilter times - avg: %d total: %d", porterStemmerFilter.getAvgTime(), porterStemmerFilter.getTotalTime()));
+        System.out.println(String.format("FreqFilter times - avg: %d total: %d", frequencyCounter.getAvgTime(), frequencyCounter.getTotalTime()));
 
         System.out.println("Total time for program: " + Duration.between(start, end).toMillis());
 
+        jTextArea2.setText(output);
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -346,9 +397,14 @@ public class UserInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
 }

@@ -31,7 +31,11 @@ public class PorterStemmerFilter extends Filter implements Runnable{
         for (Long time: times){
             sum += time;
         }
-        return (sum / times.size()) / 100;
+        if (times.size() == 0) {
+            return 0;
+        } else {
+            return (sum / times.size()) / 100;
+        }
     }
 
     @Override

@@ -32,13 +32,16 @@ public class EmptyStringFilter extends Filter implements Runnable {
         for (Long time: times){
             sum += time;
         }
-        return (sum / times.size()) / 100;
+        if (times.isEmpty()) {
+            return 0;
+        } else {
+            return (sum / times.size()) / 100;
+        }
     }
 
     //Remove empty strings from the words read from the file
     @Override
     public void run() {
-        //System.out.println("EmptyStringFilter started");
         Instant totalStart = Instant.now();
 
         while (true) {
@@ -50,7 +53,6 @@ public class EmptyStringFilter extends Filter implements Runnable {
                     String[] rawStrings = unfiltered.split("\\s");
                     for (String string : rawStrings) {
                         if (!string.equals("")) {
-                            //System.out.println(string);
                             sendData(string);
                         }
                     }

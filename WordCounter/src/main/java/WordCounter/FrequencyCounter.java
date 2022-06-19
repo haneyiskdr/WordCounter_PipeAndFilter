@@ -19,9 +19,11 @@ public class FrequencyCounter extends Filter implements Runnable{
     HashMap<String,Integer> frequencies = new HashMap();
     private List<Long> times = new ArrayList<>();
     private Long totalTime;
+    private UserInterface UI;
 
     public FrequencyCounter(Pipe in, Pipe out) {
         super(in, out);
+        this.UI = new UserInterface();
     }
 
     public Long getTotalTime() {
@@ -33,7 +35,11 @@ public class FrequencyCounter extends Filter implements Runnable{
         for (Long time: times){
             sum += time;
         }
-        return (sum / times.size()) / 100;
+        if (times.size() == 0) {
+            return 0;
+        } else {
+            return (sum / times.size()) / 100;
+        }
     }
 
 
@@ -47,10 +53,13 @@ public class FrequencyCounter extends Filter implements Runnable{
     }
 
     private void printOutResults(List<Pair> top){
-        System.out.println("\nTop words for this file:");
-        for (int i = 0; i < 10; i++){
+        UI.output += "Top words for this text:\n\n";
+        for (int i = 0; i < top.size(); i++){
             Pair candidate = top.get(i);
-            System.out.println(String.format("\t %d) %s : %d",i,candidate.getWord(),candidate.getFrequency()));
+            UI.output += String.format("%d)   %s : %d",(i+1),candidate.getWord(),candidate.getFrequency()) + "\n";
+            if (i == 9) {
+                break;
+            }
         }
     }
 
@@ -85,7 +94,11 @@ public class FrequencyCounter extends Filter implements Runnable{
 
         //Determine frequencies
         List<Pair> top = getTopFrequencies();
-        printOutResults(top);
+        if (top.size() == 0) {
+            UI.output += "Please enter a text at least 10 words";
+        } else {
+            printOutResults(top);
+        }
     }
     
 }

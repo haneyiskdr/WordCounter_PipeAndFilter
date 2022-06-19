@@ -44,8 +44,11 @@ public class StopWordFilter extends Filter implements Runnable {
         for (Long time: times) {
             total += time;
         }
-        
-        return (total / times.size()) / 100;
+        if (times.size() == 0) {
+            return 0;
+        } else {
+            return (total / times.size()) / 100;
+        }
     }
 
     // To construct the stopwords list

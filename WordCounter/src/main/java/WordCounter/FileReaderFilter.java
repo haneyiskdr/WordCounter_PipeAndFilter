@@ -38,19 +38,21 @@ public class FileReaderFilter extends Filter implements Runnable {
         for (Long time: times){
             sum += time;
         }
-        return (sum / times.size());
+        if (times.isEmpty()) {
+            return 0;
+        } else {
+            return (sum / times.size()) / 100;
+        }
     }
 
     @Override
     public void run() {
-        //System.out.println("FileReaderFilter started");
         Instant totalStart = Instant.now();
 
-        while(true) {
-
+        while (true) {
             String filename = getData();
 
-            if (filename != Filter.POISON_PILL) {
+            if (!filename.equals(Filter.POISON_PILL)) {
 
                 if (filename != null) {
                     Instant actionStart = Instant.now();
@@ -58,13 +60,10 @@ public class FileReaderFilter extends Filter implements Runnable {
 
                     //Read in from a file, throw an error if the file cannot be read
                     try {
-                        //in = new String(Files.readAllBytes(Paths.get("src/resources/"+filename)));
-                        //in = in.toLowerCase();
-
-                        BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("src/main/java/WordCounter/TextFile/"+filename)));
+                        BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("src/main/java/WordCounter/TextFile/" + filename)));
                         String line;
 
-                        while ((line = reader.readLine()) != null){
+                        while ((line = reader.readLine()) != null) {
                             sendData(line.toLowerCase());
                         }
                         Instant actionEnd = Instant.now();
