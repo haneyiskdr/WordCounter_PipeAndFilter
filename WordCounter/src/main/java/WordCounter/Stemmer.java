@@ -323,7 +323,10 @@ class Stemmer
      */
     public void stem()
     {  k = o - 1;
-        if (k > 1) { step1(); step2(); step3(); step4(); step5(); step6(); }
+    /* step(2) is removed bcs it may replace words like day, say, boy to dai, sai, boi.
+     * step(6) is removed bcs it may truncate words like little, article, prince to littl, articl, princ.
+     */
+        if (k > 1) { step1(); step3(); step4(); step5(); }
         o_end = k+1; o = 0;
     }
 
