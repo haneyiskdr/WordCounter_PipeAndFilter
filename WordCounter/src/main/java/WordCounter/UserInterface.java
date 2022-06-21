@@ -263,7 +263,7 @@ public class UserInterface extends javax.swing.JFrame {
         }
 
         try {
-            FileWriter writer = new FileWriter(file, true);
+            FileWriter writer = new FileWriter(file, false);
             writer.write(str);
             writer.close();
         } catch (Exception e) {
