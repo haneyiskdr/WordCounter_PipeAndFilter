@@ -9,7 +9,7 @@ import java.util.Queue;
 
 /**
  *
- * @author USER
+ * @author haneyiskdr
  */
 public class Pipe {
     

@@ -8,9 +8,6 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -68,18 +65,6 @@ public class FileReaderFilter extends Filter implements Runnable {
                         }
                         Instant actionEnd = Instant.now();
                         times.add(Duration.between(actionStart,actionEnd).toMillis());
-                        /*
-                        try {
-                            lines = Files.readAllLines(Paths.get(getClass().getClassLoader().getResource(filename).toURI()));
-
-                            for (String line : lines){
-                                sendData(line.toLowerCase());
-                            }
-                        } catch (URISyntaxException ue) {
-                                System.out.println("Cannot read file");
-                                ue.printStackTrace();
-                        }*/
-                        //sendData(in);
                     } catch (IOException fe) {
                         System.out.println("Unable to read from file: " + filename);
                         fe.printStackTrace();

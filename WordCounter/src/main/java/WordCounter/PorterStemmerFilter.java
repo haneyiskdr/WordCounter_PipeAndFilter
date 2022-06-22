@@ -6,14 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * PorterStemmerFilter.java
- *
- * This class is designed to change words into their base forms
- *      ie. remove all tense changes
+ * This class is designed to change words into their base forms ie. remove all tense changes
  * Utilizes the Stemmer.java class
- *
  */
-public class PorterStemmerFilter extends Filter implements Runnable{
+public class PorterStemmerFilter extends Filter implements Runnable {
 
     private List<Long> times = new ArrayList<>();
     private Long totalTime;
@@ -40,7 +36,6 @@ public class PorterStemmerFilter extends Filter implements Runnable{
 
     @Override
     public void run() {
-        //System.out.println("PorterStemmerFilter started");
         Instant totalStart = Instant.now();
 
         while (true) {
@@ -51,7 +46,6 @@ public class PorterStemmerFilter extends Filter implements Runnable{
                 if (word != null) {
                     Instant actionStart = Instant.now();
                     Stemmer stemmer = new Stemmer();
-                    //System.out.println(word);
                     for (int i = 0; i < word.length(); i++){
                         stemmer.add(word.charAt(i));
                     }

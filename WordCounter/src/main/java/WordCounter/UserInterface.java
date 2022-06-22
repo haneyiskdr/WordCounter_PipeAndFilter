@@ -283,7 +283,6 @@ public class UserInterface extends javax.swing.JFrame {
         Pipe p5 = new Pipe();
         Pipe p6 = new Pipe();
 
-        //String filename = getFileName();
         p1.in(filename);
         p1.in(Filter.POISON_PILL);
         System.out.println("You've selected " + filename);
@@ -303,23 +302,17 @@ public class UserInterface extends javax.swing.JFrame {
         StopWordFilter stopWordFilter1 = new StopWordFilter(p4, p5);
         StopWordFilter stopWordFilter2 = new StopWordFilter(p4, p5);
         StopWordFilter stopWordFilter3 = new StopWordFilter(p4, p5);
-//        stopWordFilter1.setUp("stopwords.txt");
-//        stopWordFilter2.setUp("stopwords.txt");
-//        stopWordFilter3.setUp("stopwords.txt");
-//
-//
-//        stopWordFilter.setUp("stopwords.txt");
 
         Instant start = Instant.now();
         fileReaderFilter.run();
         emptyStringFilter.run();
-        //nonAlphaFilter.run();
-
+        
+        new Thread(nonAlphaFilter).start();
         new Thread(nonAlphaFilter1).start();
         new Thread(nonAlphaFilter2).start();
         new Thread(nonAlphaFilter3).start();
-
-        //stopWordFilter.run();
+        
+        new Thread(stopWordFilter).start();
         new Thread(stopWordFilter1).start();
         new Thread(stopWordFilter2).start();
         new Thread(stopWordFilter3).start();
@@ -333,15 +326,15 @@ public class UserInterface extends javax.swing.JFrame {
         System.out.println(String.format("FileFilter times - avg: %d total: %d", fileReaderFilter.getAvgTime(), fileReaderFilter.getTotalTime()));
         System.out.println(String.format("FileFilter times - avg: %d total: %d", fileReaderFilter.getAvgTime(), fileReaderFilter.getTotalTime()));
         System.out.println(String.format("EmptyFilter times - avg: %d total: %d", emptyStringFilter.getAvgTime(), emptyStringFilter.getTotalTime()));
-        //System.out.println(String.format("NonAlphaFilter times - avg: %d total: %d",nonAlphaFilter.getAvgTime(),nonAlphaFilter.getTotalTime()));
 
         //Print out timing from threads
+        System.out.println(String.format("NonAlphaFilter times - avg: %d total: %d",nonAlphaFilter.getAvgTime(),nonAlphaFilter.getTotalTime()));
         System.out.println(String.format("NonAlphaFilter1 times - avg: %d total: %d", nonAlphaFilter1.getAvgTime(), nonAlphaFilter1.getTotalTime()));
         System.out.println(String.format("NonAlphaFilter2 times - avg: %d total: %d", nonAlphaFilter1.getAvgTime(), nonAlphaFilter1.getTotalTime()));
         System.out.println(String.format("NonAlphaFilter3 times - avg: %d total: %d", nonAlphaFilter1.getAvgTime(), nonAlphaFilter1.getTotalTime()));
 
-        //System.out.println(String.format("StopWordFilter times - avg: %d total: %d",stopWordFilter.getAvgTime(),stopWordFilter.getTotalTime()));
         //Print out timing from threads
+        System.out.println(String.format("StopWordFilter times - avg: %d total: %d",stopWordFilter.getAvgTime(),stopWordFilter.getTotalTime()));
         System.out.println(String.format("StopWordFilter1 times - avg: %d total: %d", stopWordFilter1.getAvgTime(), stopWordFilter1.getTotalTime()));
         System.out.println(String.format("StopWordFilter2 times - avg: %d total: %d", stopWordFilter2.getAvgTime(), stopWordFilter2.getTotalTime()));
         System.out.println(String.format("StopWordFilter3 times - avg: %d total: %d", stopWordFilter3.getAvgTime(), stopWordFilter3.getTotalTime()));

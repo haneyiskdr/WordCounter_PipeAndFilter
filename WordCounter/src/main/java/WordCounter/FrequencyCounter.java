@@ -15,7 +15,6 @@ import java.util.List;
  */
 public class FrequencyCounter extends Filter implements Runnable{
     
-    //Hi ni testing;
     HashMap<String,Integer> frequencies = new HashMap();
     private List<Long> times = new ArrayList<>();
     private Long totalTime;
@@ -42,7 +41,6 @@ public class FrequencyCounter extends Filter implements Runnable{
         }
     }
 
-
     private List<Pair> getTopFrequencies(){
         List<Pair> words = new ArrayList<>();
         for (String key : frequencies.keySet()){
@@ -65,8 +63,6 @@ public class FrequencyCounter extends Filter implements Runnable{
 
     @Override
     public void run() {
-        //System.out.println("FrequencyCounter started");
-
         Instant totalStart = Instant.now();
 
         //Add words to the frequency map
@@ -87,8 +83,6 @@ public class FrequencyCounter extends Filter implements Runnable{
                 } else continue;
             } else break;
         }
-        //System.out.println("FrequencyCounter finished");
-
         Instant totalEnd = Instant.now();
         totalTime = Duration.between(totalStart, totalEnd).toMillis();
 
@@ -100,5 +94,4 @@ public class FrequencyCounter extends Filter implements Runnable{
             printOutResults(top);
         }
     }
-    
 }

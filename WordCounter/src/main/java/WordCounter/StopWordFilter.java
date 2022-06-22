@@ -9,9 +9,6 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -56,7 +53,6 @@ public class StopWordFilter extends Filter implements Runnable {
 
         // Try to read file, if cannot then throw exception
         try {
-            //try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("src/main/java/WordCounter/TextFile/"+filename)));
             List<String> words = new ArrayList<>();
             String line;
@@ -64,24 +60,15 @@ public class StopWordFilter extends Filter implements Runnable {
             while ((line = reader.readLine()) != null) {
                 words.add(line);
             }
-
-            //List<String> words = Files.readAllLines(Paths.get(getClass().getClassLoader().getResourceAsStream(filename)));
             for (String word : words) {
                 String cleanedWord = word.replaceAll("[\\n\\t]", "");
                 stopWords.add(cleanedWord);
             }
-                /*
-            } catch (URISyntaxException ue){
-                System.out.println("Cannot read file");
-                ue.printStackTrace();
-            }*/
         } catch (IOException fe) {
             System.out.println("Unable to read from stopwords.txt.");
             fe.printStackTrace();
         }
-
         System.out.println("Stop word filter setup has been completed.");
-        
     }
 
     // To filter out stop words from the input text file
